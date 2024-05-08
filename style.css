@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: black;
+}
+
+header {
+    margin: 10vh 20vh;
+    height: 1vh;
+    animation-fill-mode: forwards;
+}
+
+main {
+    background-color: blue;
+}
+
+header h1 {
+    margin: 0;
+    color: rgb(118, 118, 118);
+    text-transform: uppercase;
+    font-size: 24px;
+    opacity: 0; /* When this page loads, this needs to be hidden */
+    /* Probably going to need to look into this for other browsers */
+    /* -webkit-animation: fadein 10s; /* Safari, Chrome and Opera > 12.1 */
+    /* -moz-animation: fadein 10s; /* Firefox < 16 */
+    /* -ms-animation: fadein 10s; /* Internet Explorer */
+    /* -o-animation: fadein 10s; /* Opera < 12.1 */
+    animation: fadeIn 1.5s;
+    animation-fill-mode: forwards;  /* Make opacity stay at 1 when it gets there */
+}
+
+header h2 {
+    margin: 0;
+    color: rgb(169, 169, 169);
+    opacity: 0; /* When this page loads, this needs to be hidden */
+    /* Probably going to need to look into this for other browsers */
+    /* -webkit-animation: fadein 10s; /* Safari, Chrome and Opera > 12.1 */
+    /* -moz-animation: fadein 10s; /* Firefox < 16 */
+    /* -ms-animation: fadein 10s; /* Internet Explorer */
+    /* -o-animation: fadein 10s; /* Opera < 12.1 */
+    animation: fadeIn 1.5s;
+    animation-delay: 1.5s; /* Delay this fadeIn until after my name fades in */
+    animation-fill-mode: forwards; /* Make opacity stay at 1 when it gets there */
+}
+
+.location {
+    color: rgb(184, 101, 0);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
