@@ -1,3 +1,4 @@
+/* The usual ... ? */
 * {
     box-sizing: border-box;
     font-family: sans-serif;
@@ -5,72 +6,39 @@
     padding: 0;
 }
 
-/* scroll snap stuff */
-html {
-    /* Experiment */
-    scroll-snap-type: y proximity;
-    scroll-behavior: smooth;
+/* Set us up to fill the screen with content */
+html,
+body,
+main,
+section {
+    height: 100%;
 }
-main section {
-    color: lightgray;
+
+/* General section-ry */
+section {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     scroll-snap-align: start;
     scroll-snap-stop: always;
 }
-/********************************************************************/
-/* Layout stuff; separated because fairly static (shouldn't change) */
 
-main section:nth-child(odd) {
+/* Alternate colors to break the monotony */
+section:nth-child(odd) {
     background-color: #113755;
+    color: #d3d3d3;
 }
-main section:nth-child(even) {
+
+section:nth-child(even) {
+    background-color: #d3d3d3;
     color: #113755;
 }
 
-/********************************************************************/
-/* Sections */
-#section-1-container {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#greeting-container {
-    height: 70vh;
-    margin-top: 40vh;
-}
-
-#greeting-container a {
-    text-decoration: none;
-}
-
-#greeting-container h1 {
-    animation: fadeIn 1.5s;
-    animation-delay: .25s;
-    animation-fill-mode: forwards;  /* Make opacity stay at 1 when it gets there */
-    color: rgb(169, 169, 169);
-    font-size: 1.4rem;
-    margin: 0;
-    opacity: 0;
-    text-transform: uppercase;
-    text-align: left;
-}
-
-#greeting-container h2 {
-    animation: fadeIn 1.5s;
-    animation-delay: 1.5s; /* Delay this fadeIn until after my name fades in */
-    animation-fill-mode: forwards; /* Make opacity stay at 1 when it gets there */
-    font-size: 2rem;
-    margin: 0;
-    opacity: 0; /* When this page loads, this needs to be hidden */
-    text-align: left;
-}
-
-/*** SECTION 1 MAKE 'SYRACUSE' ORANGE ***/
+/* Make 'Syracuse' orange */
 .location {
     color: rgb(184, 101, 0);
     animation: unhighlightSyr 1s;
+    text-decoration: none;
 }
 
 .location:hover {
@@ -78,20 +46,55 @@ main section:nth-child(even) {
     animation-fill-mode: forwards;
 }
 
-/********************************************************************/
-/* Arrow animation */
-#arrow-box {
-    align-items: center;
-    color: gray;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    /* margin: auto; */
-    margin-bottom: 0;
-    
+/* Settings pertaining to the 'greeting' section  */
+#greeting-container {
+    align-content: center;
+    flex: 1.5;
 }
 
-#arrow-box span {
+#greeting-container > h1,
+#greeting-container > h2 {
+    animation: fadeIn 1.5s;
+    animation-fill-mode: forwards;
+    margin: 0;
+    opacity: 0;
+}
+
+#greeting-container > h1 {
+    animation-delay: .25s;
+    
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+#greeting-container > h2 {
+    animation-delay: 1.5s;
+}
+
+#arrow-container {
+    align-items: center;
+    color: #808080;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 0;
+    margin-top: 50%;
+}
+
+#arrow-container:hover {
+    cursor: pointer;
+}
+
+#arrow-container > p {
+    animation: fadeIn 1.5s;
+    animation-delay: 4.5s; /* Delay this fadeIn until after my name fades in */
+    animation-fill-mode: forwards; /* Make opacity stay at 1 when it gets there */
+    color: lightgray;
+    opacity: 0;
+}
+
+#arrow-container > span {
     animation: animateArrows 3s infinite;
     animation-delay: 3s;
     border-bottom: 1px solid white;
@@ -103,45 +106,32 @@ main section:nth-child(even) {
     width: 20px;
 }
 
-#arrow-box span:nth-child(1) {
+#arrow-container > span:nth-child(1) {
     animation-delay: 3.2s;
 }
-#arrow-box span:nth-child(2) {
+#arrow-container > span:nth-child(2) {
     animation-delay: 3.4s;
 }
-#arrow-box span:nth-child(3) {
+#arrow-container > span:nth-child(3) {
     animation-delay: 3.6s;
 }
 
-#arrow-box p {
-    animation: fadeIn 1.5s;
-    animation-delay: 4.5s; /* Delay this fadeIn until after my name fades in */
-    animation-fill-mode: forwards; /* Make opacity stay at 1 when it gets there */
-    color: lightgray;
-    opacity: 0;
+/* Bring things to life! */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-#arrow-box:hover {
-    cursor: pointer;
+@keyframes highlightSyr {
+    from { color: rgb(184, 101, 0); }
+    to { color: rgb(230, 126, 0); }
 }
 
-/* ** SECTION 2 SPLIT THE VIEW ** */
-#section-2-container {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@keyframes unhighlightSyr {
+    from { color: rgb(230, 126, 0); }
+    to { color: rgb(184, 101, 0); }
 }
 
-.panel {
-    flex: 1;
-}
-
-.hidden {
-    opacity: 0;
-}
-
-/* ** ANIMATIONS ** */
 @keyframes animateArrows {
     0% {
         opacity: 0;
@@ -154,47 +144,4 @@ main section:nth-child(even) {
         opacity: 0;
         transform: rotate(45deg) translate(-18%, -18%);
     }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes highlightSyr {
-    from {
-        color: rgb(184, 101, 0);
-    }
-    to {
-        color: rgb(230, 126, 0);
-    }
-}
-
-@keyframes unhighlightSyr {
-    from {
-        color: rgb(230, 126, 0);
-    }
-    to {
-        color: rgb(184, 101, 0);
-    }
-}
-
-@keyframes growContainer {
-
-}
-
-@media (width < 900px) {
-    #greeting-container {
-        padding-top: 10%;
-        padding-left: 10%;
-        padding-right: 10%;
-    }
-    #section-2-container {
-        flex-direction: column;
-    }
-
 }

@@ -1,17 +1,9 @@
-const arrowLink = document.getElementById('arrow-box');
-
 /* Add listener so the screen scrolls when the guest clicks the
  * arrows on the bottom of the header section
  */
+const arrowLink = document.getElementById('arrow-container');
 arrowLink.addEventListener('click', (event)=> {
-    document.getElementById('section-2-container').scrollIntoView();
-});
-
-const panelItems = document.querySelectorAll('.panel');
-
-panelItems.forEach((panel) => {
-    panel.addEventListener('click', (event) => {
-        console.log("You clicked " + panel.id + ".");
-    });
-    
+    /* No section-2 currently */
+    /* document.getElementById('section-2-container').scrollIntoView(); */
+    console.log("Selected the arrows");
 });
