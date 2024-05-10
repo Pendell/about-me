@@ -26,11 +26,11 @@ section {
 /* Alternate colors to break the monotony */
 section:nth-child(odd) {
     background-color: #113755;
-    color: #d3d3d3;
+    color: #ffffff;
 }
 
 section:nth-child(even) {
-    background-color: #d3d3d3;
+    background-color: #ffffff;
     color: #113755;
 }
 
@@ -58,7 +58,7 @@ section:nth-child(even) {
     animation: fadeIn 1.5s;
     animation-fill-mode: forwards;
     margin: 0;
-    opacity: 0;
+    opacity: 0.01;
 }
 
 #greeting-container > h1 {
@@ -74,7 +74,7 @@ section:nth-child(even) {
 
 #arrow-container {
     align-items: center;
-    color: #808080;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -89,8 +89,8 @@ section:nth-child(even) {
     animation: fadeIn 1.5s;
     animation-delay: 4.5s; /* Delay this fadeIn until after my name fades in */
     animation-fill-mode: forwards; /* Make opacity stay at 1 when it gets there */
-    color: lightgray;
-    opacity: 0;
+    color: #ffffff;
+    opacity:0.01;
 }
 
 #arrow-container > span {
@@ -100,7 +100,7 @@ section:nth-child(even) {
     border-right: 1px solid white;
     display: block;
     height: 15px;
-    opacity: 0; /* Start invisible */
+    opacity: 0.01; /* Start invisible */
     transform: rotate(45deg);
     width: 15px;
 }
@@ -117,23 +117,23 @@ section:nth-child(even) {
 
 /* Bring things to life! */
 @keyframes fadeIn {
-    from { opacity: 0; }
+    from { opacity: 0.01; }
     to { opacity: 1; }
 }
 
 @keyframes highlightSyr {
-    from { color: rgb(184, 101, 0); }
-    to { color: rgb(230, 126, 0); }
+    from { color: rgb(230, 126, 0); }
+    to { color: rgb(255, 140, 0); }
 }
 
 @keyframes unhighlightSyr {
-    from { color: rgb(230, 126, 0); }
-    to { color: rgb(184, 101, 0); }
+    from { color: rgb(255, 140, 0); }
+    to { color: rgb(230, 126, 0); }
 }
 
 @keyframes animateArrows {
     0% {
-        opacity: 0;
+        opacity: 0.01;
         transform: rotate(45deg) translate(-200%, -200%);
     }
     50% {
