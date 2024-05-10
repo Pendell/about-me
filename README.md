@@ -1,1 +1,1 @@
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, id mollitia. Vitae soluta aliquam, sit ex porro at provident sunt atque, animi alias necessitatibus! Ut voluptates mollitia distinctio ad officiis!
+Hi, my name is Alex. Just wanted to say thanks for checking out my page here.
